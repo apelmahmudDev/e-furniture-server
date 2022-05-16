@@ -25,13 +25,8 @@ mongoose
 	.then(() => console.log("connection successful"))
 	.catch((err) => console.log(err));
 
-// root
-app.get("/", (req, res) => {
-	res.send("e-furniture server running!");
-});
-
 // use api routes in the app
-app.use("/api", apiRoutes);
+app.use("/", apiRoutes);
 
 // app listener
 app.listen(port, () => {
