@@ -34,7 +34,7 @@ exports.new = (req, res) => {
 
 // handle view product info
 exports.view = (req, res) => {
-	Product.findById(req, params.product_id, (err, product) => {
+	Product.findById(req.params.product_id, (err, product) => {
 		if (err) {
 			res.send(err);
 		}
@@ -58,7 +58,7 @@ exports.update = (req, res) => {
 		product.category = req.body.category;
 
 		// save the product and check for errors
-		product.save((req, res) => {
+		product.save((err) => {
 			if (err) {
 				res.json(err);
 			}
@@ -75,7 +75,7 @@ exports.delete = (req, res) => {
 			_id: req.params.product_id,
 		},
 		(err, product) => {
-			if ((err, contact)) {
+			if (err) {
 				res.send(err);
 			}
 			res.json({
