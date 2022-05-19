@@ -1,9 +1,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 require("dotenv").config();
 const app = express();
 const port = 8080;
+
+const corsOptions = {
+	origin: "*",
+	credentials: true, //access-control-allow-credentials:true
+	optionSuccessStatus: 200,
+};
 
 // import Routes
 let apiRoutes = require("./api-routes");
@@ -15,6 +22,7 @@ app.use(
 );
 
 app.use(bodyParser.json());
+app.use(cors(corsOptions));
 
 // connection with db
 mongoose
