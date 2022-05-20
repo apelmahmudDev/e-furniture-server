@@ -13,7 +13,7 @@ const corsOptions = {
 };
 
 // import Routes
-let apiRoutes = require("./api-routes");
+let apiRoutes = require("./routes/api-routes");
 
 app.use(
 	bodyParser.urlencoded({

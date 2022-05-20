@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const productController = require("./productController");
+const product = require("../controller/product");
 
 // set default API response
 router.get("/", (req, res) => {
@@ -11,17 +11,14 @@ router.get("/", (req, res) => {
 });
 
 // product routes
-router
-	.route("/products")
-	.get(productController.index)
-	.post(productController.new);
+router.route("/products").get(product.index).post(product.new);
 
 router
 	.route("/products/:product_id")
-	.get(productController.view)
-	.patch(productController.update)
-	.put(productController.update)
-	.delete(productController.delete);
+	.get(product.view)
+	.patch(product.update)
+	.put(product.update)
+	.delete(product.delete);
 
 // Export api routes
 module.exports = router;

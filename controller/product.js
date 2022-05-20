@@ -1,4 +1,4 @@
-Product = require("./productModel");
+Product = require("../model/product.schema");
 
 // handle index actions
 exports.index = (req, res) => {
