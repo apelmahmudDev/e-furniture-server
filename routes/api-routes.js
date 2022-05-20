@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const product = require("../controller/product");
+const user = require("../controller/user");
 
 // set default API response
 router.get("/", (req, res) => {
@@ -19,6 +20,9 @@ router
 	.patch(product.update)
 	.put(product.update)
 	.delete(product.delete);
+
+// user routes
+router.route("/user").get(user.index).post(user.new);
 
 // Export api routes
 module.exports = router;
