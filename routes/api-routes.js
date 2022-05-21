@@ -22,7 +22,8 @@ router
 	.delete(product.delete);
 
 // user routes
-router.route("/user").get(user.index).post(user.new);
+router.route("/users").get(user.index);
+router.route("/sign-up").post(user.new);
 router.route("/login").get(user.view);
 
 // Export api routes

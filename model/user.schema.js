@@ -29,7 +29,7 @@ const userSchema = mongoose.Schema({
 		trim: true,
 		required: [true, "Password is required"],
 	},
-	userType: {
+	user_type: {
 		type: String,
 		trim: true,
 		required: [true, "User type is required"],
