@@ -29,6 +29,15 @@ const userSchema = mongoose.Schema({
 		trim: true,
 		required: [true, "Password is required"],
 	},
+	userType: {
+		type: String,
+		trim: true,
+		required: [true, "User type is required"],
+	},
+	avatar: {
+		type: String,
+		trim: true,
+	},
 });
 
 userSchema.path("email").validate(async (email) => {

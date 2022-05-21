@@ -14,6 +14,28 @@ exports.index = (req, res) => {
 	});
 };
 
+// handle user by email and password
+exports.view = (req, res) => {
+	User.findOne({ email: req.body.email }, (err, data) => {
+		if (err) {
+			res.json({ status: "error", message: err });
+		} else {
+			if (data) {
+				if (data.password !== req.body.password) {
+					return res
+						.status(403)
+						.json({ status: "error", message: "User password is incorrect!" });
+				}
+				res.json({ user: data });
+			} else {
+				return res
+					.status(399)
+					.json({ status: "error", message: "User email not match!" });
+			}
+		}
+	});
+};
+
 // handle create user actions
 exports.new = (req, res) => {
 	const user = new User();
