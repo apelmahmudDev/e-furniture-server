@@ -1,3 +1,5 @@
+const res = require("express/lib/response");
+
 User = require("../model/user.schema");
 
 // handle index actions
@@ -45,6 +47,8 @@ exports.new = (req, res) => {
 	user.phone = req.body.phone;
 	user.email = req.body.email;
 	user.password = req.body.password;
+	user.user_type = req.body.user_type;
+	user.avatar = req.body.avatar;
 
 	// save the user and check for errors
 	user.save((err) => {
@@ -53,4 +57,22 @@ exports.new = (req, res) => {
 		}
 		res.json({ message: "New user created!", data: user });
 	});
+};
+
+// handle delete user by id
+exports.delete = (req, res) => {
+	User.deleteOne(
+		{
+			_id: req.params.user_id,
+		},
+		(err, user) => {
+			if (err) {
+				res.status(400).json({ status: "Bad request", message: err });
+			}
+			res.json({
+				status: "success",
+				message: "User deleted successfully!",
+			});
+		}
+	);
 };

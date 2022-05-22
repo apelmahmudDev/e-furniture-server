@@ -70,7 +70,7 @@ exports.update = (req, res) => {
 // handle delete product
 
 exports.delete = (req, res) => {
-	Product.remove(
+	Product.deleteOne(
 		{
 			_id: req.params.product_id,
 		},

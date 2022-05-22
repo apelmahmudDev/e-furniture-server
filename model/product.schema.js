@@ -8,10 +8,6 @@ const productSchema = mongoose.Schema({
 	image: String,
 	category: String,
 	subCategory: String,
-	// create_date: {
-	// 	Type: Date,
-	// 	default: Date.now,
-	// },
 });
 
 // export product model
