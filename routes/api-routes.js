@@ -24,7 +24,7 @@ router
 // user routes
 router.route("/users").get(user.index);
 router.route("/sign-up").post(user.new);
-router.route("/login").get(user.view);
+router.route("/login").post(user.view);
 router.route("/users/:user_id").delete(user.delete);
 
 // Export api routes

@@ -16,7 +16,7 @@ exports.index = (req, res) => {
 	});
 };
 
-// handle user by email and password
+// get logged in user
 exports.view = (req, res) => {
 	User.findOne({ email: req.body.email }, (err, data) => {
 		if (err) {
@@ -38,7 +38,7 @@ exports.view = (req, res) => {
 	});
 };
 
-// handle create user actions
+// handle create user
 exports.new = (req, res) => {
 	const user = new User();
 
