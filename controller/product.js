@@ -39,7 +39,7 @@ exports.view = (req, res) => {
 			res.send(err);
 		}
 		res.json({
-			message: "Product details loading...",
+			message: "Product details loaded successfully",
 			data: product,
 		});
 	});
