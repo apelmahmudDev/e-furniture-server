@@ -14,6 +14,21 @@ exports.index = (req, res) => {
 	});
 };
 
+// filter products by category
+
+exports.filter = (req, res) => {
+	Product.find({ subCategory: req.params.category }, (err, products) => {
+		if (err) {
+			res.json({ status: "error", message: err });
+		}
+		res.json({
+			status: "success",
+			message: "Product retrieved successfully",
+			data: products,
+		});
+	});
+};
+
 // handle create product actions
 exports.new = (req, res) => {
 	const product = new Product();
@@ -22,6 +37,7 @@ exports.new = (req, res) => {
 	product.description = req.body.description;
 	product.image = req.body.image;
 	product.category = req.body.category;
+	product.subCategory = req.body.subCategory;
 
 	// save the product and check for errors
 	product.save((err) => {

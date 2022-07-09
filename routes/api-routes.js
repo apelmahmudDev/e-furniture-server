@@ -14,6 +14,7 @@ router.get("/", (req, res) => {
 
 // product routes
 router.route("/products").get(product.index).post(product.new);
+router.route("/products/filter/:category").get(product.filter);
 router
 	.route("/products/:product_id")
 	.get(product.view)

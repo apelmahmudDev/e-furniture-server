@@ -7,7 +7,10 @@ const productSchema = mongoose.Schema({
 	description: String,
 	image: String,
 	category: String,
-	subCategory: String,
+	subCategory: {
+		type: String,
+		required: true,
+	},
 });
 
 // export product model

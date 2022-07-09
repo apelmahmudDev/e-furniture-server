@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 // setup schema
+
 const orderSchema = mongoose.Schema(
 	{
 		shippingAddress: {
@@ -51,7 +52,7 @@ const orderSchema = mongoose.Schema(
 			payableTotal: Number,
 		},
 		paymentMethod: {
-			enum: ["Cash on delivery", "Bikash", "Nagad"],
+			enum: ["Cash on Delevery", "Bkash", "Nagad"],
 			type: String,
 		},
 		cart: [
@@ -65,7 +66,7 @@ const orderSchema = mongoose.Schema(
 			},
 		],
 		status: {
-			enum: ["Pending", "Cancelled", "Done"],
+			enum: ["Pending", "Cancel", "Done"],
 			type: String,
 		},
 	},
