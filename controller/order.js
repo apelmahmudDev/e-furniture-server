@@ -23,7 +23,11 @@ exports.new = (req, res) => {
 		if (err) {
 			res.json(err);
 		}
-		res.json({ message: "New order created!", data: order });
+		// res.json({ message: "New order created!", data: order });
+
+		return res
+			.status(201)
+			.json({ status: "created", message: "New order created!", data: order });
 	});
 };
 
