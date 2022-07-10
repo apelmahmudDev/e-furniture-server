@@ -16,18 +16,19 @@ exports.index = (req, res) => {
 
 // handle create order actions
 exports.new = (req, res) => {
-	const order = new Order(req.body);
+	// const order = new Order(req.body);
+	const order = new Order();
 
 	// save the order and check for errors
 	order.save((err) => {
 		if (err) {
 			res.json(err);
 		}
-		// res.json({ message: "New order created!", data: order });
+		res.json({ message: "New order created!", data: order });
 
-		return res
-			.status(201)
-			.json({ status: "created", message: "New order created!", data: order });
+		// return res
+		// 	.status(201)
+		// 	.json({ status: "created", message: "New order created!", data: order });
 	});
 };
 
