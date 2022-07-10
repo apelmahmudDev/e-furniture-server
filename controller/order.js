@@ -4,7 +4,7 @@ Order = require("../model/order.schema");
 exports.index = (req, res) => {
 	Order.get((err, orders) => {
 		if (err) {
-			res.json({ status: "error", message: err });
+			return res.json({ status: "error", message: err });
 		}
 		res.json({
 			status: "success",
@@ -16,19 +16,14 @@ exports.index = (req, res) => {
 
 // handle create order actions
 exports.new = (req, res) => {
-	// const order = new Order(req.body);
-	const order = new Order();
+	const order = new Order(req.body);
 
 	// save the order and check for errors
 	order.save((err) => {
 		if (err) {
-			res.json(err);
+			return res.json(err);
 		}
 		res.json({ message: "New order created!", data: order });
-
-		// return res
-		// 	.status(201)
-		// 	.json({ status: "created", message: "New order created!", data: order });
 	});
 };
 
@@ -36,7 +31,7 @@ exports.new = (req, res) => {
 exports.view = (req, res) => {
 	Order.findById(req.params.order_id, (err, order) => {
 		if (err) {
-			res.send(err);
+			return res.send(err);
 		}
 		res.json({
 			message: "Order details loaded successfully",
