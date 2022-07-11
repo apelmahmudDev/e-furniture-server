@@ -60,6 +60,7 @@ const orderSchema = mongoose.Schema(
 				_id: String,
 				name: String,
 				price: Number | String,
+				quantity: Number,
 				description: String,
 				image: String,
 				category: String,
