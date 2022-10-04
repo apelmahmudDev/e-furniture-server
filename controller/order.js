@@ -71,7 +71,7 @@ exports.viewAsStatus = (req, res) => {
 	});
 };
 
-// handle update product info
+// handle update order info
 exports.update = (req, res) => {
 	Order.updateOne(
 		{ _id: req.params.order_id },
