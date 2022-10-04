@@ -30,6 +30,7 @@ router.route("/users/:user_id").delete(user.delete);
 
 // order routes
 router.route("/orders").get(order.index);
+router.route("/orders/:email").get(order.viewUserOrders);
 router.route("/order/:status").get(order.viewAsStatus);
 router.route("/order").post(order.new);
 router.route("/order/:order_id").put(order.update);

@@ -14,6 +14,25 @@ exports.index = (req, res) => {
 	});
 };
 
+// get orders by user email
+exports.viewUserOrders = (req, res) => {
+	Order.get((err, orders) => {
+		if (err) {
+			return res.json({ status: "error", message: err });
+		}
+
+		const ordersByEmail = orders.filter(
+			(order) => order.shippingAddress.email === req.params.email
+		);
+
+		res.json({
+			status: "success",
+			message: "Orders retrieved successfully",
+			data: ordersByEmail,
+		});
+	});
+};
+
 // handle create order actions
 exports.new = (req, res) => {
 	const order = new Order(req.body);
