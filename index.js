@@ -38,5 +38,6 @@ app.use("/", apiRoutes);
 
 // app listener
 app.listen(port, () => {
-	console.log(`Server listening on port ${port}`);
+	console.log(`Server listening on below port`);
+	console.log(`http://localhost:${port}`);
 });
